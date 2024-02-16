@@ -12,6 +12,12 @@
     state: started
   become: yes
 
+- name: create dir www
+  file:
+    path: /var/www/html/
+    state: directory
+  become: yes 
+
 - name: copy index.html
   template:
     src: index.html.j2
