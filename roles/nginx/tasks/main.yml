@@ -1,10 +1,9 @@
 - name: install nginx
-  apt: 
+  apt:
     name:
       - nginx
     state: present
     update_cache: yes
-    #cache_valid_time: 3600
   become: yes
 
 - name: start nginx
@@ -13,8 +12,9 @@
     state: started
   become: yes
 
-- name: index
+- name: copy index.html
   template:
     src: index.html.j2
     dest: /var/www/html/index.html
+
 
